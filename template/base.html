@@ -5,9 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}CampusConnect{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        :root {
+            --campus-forest: #123b2a;
+            --campus-green: #16794b;
+            --campus-green-dark: #105c39;
+            --campus-mint: #e4f3e8;
+            --campus-sage: #f3f8f1;
+            --campus-ink: #193329;
+            --campus-muted: #60766a;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--campus-ink);
+            background:
+                radial-gradient(ellipse at 8% 12%, rgba(181, 222, 185, .35), transparent 34rem),
+                radial-gradient(ellipse at 92% 78%, rgba(197, 226, 190, .32), transparent 30rem),
+                var(--campus-sage);
+        }
+
+        .site-nav {
+            background: linear-gradient(110deg, var(--campus-forest), #17683f 70%, #23814d);
+            box-shadow: 0 4px 18px rgba(18, 59, 42, .16);
+        }
+
+        .site-nav .navbar-brand {
+            font-weight: 750;
+            letter-spacing: .02em;
+            color: #fff;
+        }
+
+        .site-nav .navbar-brand:hover,
+        .site-nav .navbar-brand:focus {
+            color: #fff;
+        }
+
+        .site-nav .nav-link {
+            color: #fff;
+        }
+
+        .site-nav .nav-link:hover,
+        .site-nav .nav-link:focus {
+            color: #fff;
+        }
+
+        main.container {
+            min-height: calc(100vh - 150px);
+        }
+
+        .card {
+            overflow: hidden;
+            border: 1px solid #d5e7d8;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, .94);
+            box-shadow: 0 14px 36px rgba(28, 76, 48, .09) !important;
+        }
+
+        .card-body {
+            border-top: 4px solid #70b77d;
+        }
+
+        h1, h2, h3 {
+            color: var(--campus-forest);
+            font-weight: 700;
+        }
+
+        main a:not(.btn):not(.navbar-brand) {
+            color: var(--campus-green-dark);
+            text-decoration-color: #9ac9a0;
+            text-underline-offset: .18em;
+        }
+
+        main a:not(.btn):not(.navbar-brand):hover {
+            color: var(--campus-forest);
+        }
+
+        .btn-primary {
+            --bs-btn-bg: var(--campus-green);
+            --bs-btn-border-color: var(--campus-green);
+            --bs-btn-hover-bg: var(--campus-green-dark);
+            --bs-btn-hover-border-color: var(--campus-green-dark);
+            --bs-btn-active-bg: var(--campus-forest);
+            --bs-btn-active-border-color: var(--campus-forest);
+            --bs-btn-focus-shadow-rgb: 22, 121, 75;
+        }
+
+        .btn-outline-primary {
+            --bs-btn-color: var(--campus-green-dark);
+            --bs-btn-border-color: #6aaa7a;
+            --bs-btn-hover-bg: var(--campus-green);
+            --bs-btn-hover-border-color: var(--campus-green);
+            --bs-btn-active-bg: var(--campus-green-dark);
+            --bs-btn-active-border-color: var(--campus-green-dark);
+            --bs-btn-focus-shadow-rgb: 22, 121, 75;
+        }
+
+        .btn-outline-secondary {
+            --bs-btn-color: var(--campus-green-dark);
+            --bs-btn-border-color: #a9c8ae;
+            --bs-btn-hover-bg: var(--campus-mint);
+            --bs-btn-hover-color: var(--campus-forest);
+            --bs-btn-hover-border-color: #78aa81;
+        }
+
+        .btn:focus-visible,
+        .form-control:focus {
+            box-shadow: 0 0 0 .22rem rgba(22, 121, 75, .2);
+        }
+
+        .form-control {
+            border-color: #c9ddcd;
+            border-radius: .65rem;
+        }
+
+        .form-control:focus {
+            border-color: #70b77d;
+        }
+
+        .form-label {
+            color: #315b42;
+            font-weight: 600;
+        }
+
+        .form-text,
+        .text-muted {
+            color: var(--campus-muted) !important;
+        }
+
+        .alert-success {
+            --bs-alert-color: #174b2d;
+            --bs-alert-bg: #e1f3e5;
+            --bs-alert-border-color: #b7dfbf;
+        }
+
+        footer {
+            color: var(--campus-muted);
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark site-nav">
         <div class="container">
             <a class="navbar-brand" href="{% url 'dashboard' %}">CampusConnect</a>
             <div class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
