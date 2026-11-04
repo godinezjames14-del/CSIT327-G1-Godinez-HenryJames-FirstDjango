@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 
+{% block title %}Dashboard | CampusConnect{% endblock %}
+
 {% block content %}
-    <h2>Welcome, {{ user.first_name | default:user.username }}!</h2>
-    <ul>
-        <li>Role: {{ user.get_role_display }}</li>
-        <li>Course: {{ user.course | default:"Not set" }}</li>
-        <li>Members: {{ member_count }}</li>
-        <li>Last login: {{ user.last_login | date:"M d, Y" }}</li>
-    </ul>
-    {% if is_admin %}
-        <a href="{% url 'admin_panel' %}">Open Admin Panel</a>
-    {% endif %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h1 class="h3">Welcome, {{ user.first_name|default:user.username }}!</h1>
+            <dl class="row mt-4 mb-0">
+                <dt class="col-sm-3">Role</dt>
+                <dd class="col-sm-9">{{ user.get_role_display }}</dd>
+                <dt class="col-sm-3">Course</dt>
+                <dd class="col-sm-9">{{ user.course|default:"Not set" }}</dd>
+                <dt class="col-sm-3">Members</dt>
+                <dd class="col-sm-9">{{ member_count }}</dd>
+                <dt class="col-sm-3">Last login</dt>
+                <dd class="col-sm-9">{{ user.last_login|date:"M d, Y" }}</dd>
+            </dl>
+            <a class="btn btn-outline-primary" href="{% url 'profile' %}">Edit profile</a>
+            {% if is_admin %}
+                <a class="btn btn-primary ms-2" href="{% url 'admin_panel' %}">Open Admin Panel</a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
