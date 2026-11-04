@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            Hi, {{ user.username }}!
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Log out</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+         <!-- {% block title %} Wassup {% endblock %} -->
+    </main>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+</body>
+</html>

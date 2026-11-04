@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>CampusConnect Dashboard</h1>
+    <p>Registered members: {{ member_count }}</p>
+    {% if is_admin %}
+        <p><a href="{% url 'admin_panel' %}">Open admin panel</a></p>
+    {% endif %}
+{% endblock %}
