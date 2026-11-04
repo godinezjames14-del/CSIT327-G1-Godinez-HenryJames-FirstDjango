@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Admin Panel</h1>
+    <p>Welcome to the admin panel, {{ user.username }}.</p>
+    <ul>
+        <li><a href="{% url 'dashboard' %}">Back to Dashboard</a></li>
+        <!-- Add more admin functionalities here -->
+    </ul>
+{% endblock %}
